@@ -1,0 +1,6 @@
+# Vim
+
+```
+[~]vim +BundleInstall
+
+```
