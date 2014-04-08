@@ -1,0 +1,5 @@
+" Vim plugin for the_silver_searcher, 'ag'
+" ---------------------------------------
+Bundle 'rking/ag.vim'
+
+" vim:ft=vim

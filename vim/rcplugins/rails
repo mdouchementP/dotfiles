@@ -1,0 +1,5 @@
+" rails.vim: Ruby on Rails power tools
+" ------------------------------------
+Bundle 'tpope/vim-rails'
+
+" vim:ft=vim

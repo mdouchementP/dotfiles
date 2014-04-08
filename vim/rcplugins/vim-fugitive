@@ -1,0 +1,5 @@
+" fugitive.vim: a Git wrapper so awesome, it should be illegal
+" ------------------------------------------------------------
+Bundle 'tpope/vim-fugitive'
+
+" vim:ft=vim
