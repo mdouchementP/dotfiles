@@ -24,8 +24,8 @@ endfunction
 " Setup Vundle to manage my bundles
 "-----------------------------------
 filetype off " required!
-set rtp+=~/.vim/bundles/vundle/
-call vundle#rc("~/.vim/bundles/")
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc("~/.vim/bundle/")
 
 
 " Plugins are each listed in their own file. Loop and source ftw
