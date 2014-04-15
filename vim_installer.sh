@@ -8,12 +8,16 @@ pause() {
 }
 
 echo 'Install vim on your machine'
+echo ' Ubuntu: apt-get install tmux'
+echo 'Install vim on your machine'
 echo ' Ubuntu: apt-get install vim'
 
 
 pause
 
 
+echo 'Create symbolic links for tmux'
+ln -s $DIR/.tmux.conf ~/.tmux.conf
 echo 'Create symbolic links for vimrc & plugins'
 ln -s $DIR/.vimrc ~/.vimrc
 ln -s $DIR/vim/rcfiles ~/.vim/rcfiles

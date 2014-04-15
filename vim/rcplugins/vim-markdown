@@ -1,0 +1,5 @@
+" Markdown Vim Mode
+" Syntax highlighting, matching rules and mappings for the original Markdown and extensions.
+" ------------------------------------------------------------------------------------------
+
+Bundle 'plasticboy/vim-markdown'
