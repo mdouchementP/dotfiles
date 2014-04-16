@@ -1,0 +1,5 @@
+" Vimux
+" Easily interact with tmux from vim.
+" -----------------------------------
+
+Bundle 'benmills/vimux'

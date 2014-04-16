@@ -1,0 +1,5 @@
+" Vim Gitgutter
+" A Vim plugin which shows a git diff in the 'gutter'
+" ------------------------------------------------------------------------------------------
+
+Bundle 'airblade/vim-gitgutter'
