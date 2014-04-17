@@ -1,0 +1,6 @@
+" Monokai - Colorscheme definition.
+" May use this command: ln -s ~/.vim/bundle/monokai/colors/monokai.vim ~/.vim/colors/"
+" ---------------------------------
+Bundle "sickill/vim-monokai"
+
+" vim:ft=vim

@@ -70,3 +70,8 @@ if [ -f ~/.profile ]
 then
   . "$HOME/.profile"
 fi
+
+if [ -f ~/.bin/tmuxinator.zsh ]
+then
+  source ~/.bin/tmuxinator.zsh
+fi

@@ -1,6 +1,0 @@
-" Molokai - Colorscheme definition.
-" May use this command: ln -s ~/.vim/bundle/molokai/colors/molokai.vim ~/.vim/colors/"
-" ---------------------------------
-Bundle "tomasr/molokai"
-
-" vim:ft=vim
