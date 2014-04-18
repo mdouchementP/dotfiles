@@ -13,3 +13,6 @@
 
 ## Tutorial
 * [https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation](https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation)
+
+# vim-instant-markdown installation
+Go to [vim-instant-markdown](https://github.com/suan/vim-instant-markdown) repository and see installation dependencies.

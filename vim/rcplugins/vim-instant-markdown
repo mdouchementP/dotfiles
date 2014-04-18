@@ -1,0 +1,6 @@
+" vim-instant-markdown
+" Display markdown preview
+" See https://github.com/suan/vim-instant-markdown for installation
+"------------------------------------------------------------------
+
+Bundle 'suan/vim-instant-markdown'
