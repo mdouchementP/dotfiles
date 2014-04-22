@@ -1,0 +1,5 @@
+" Nerd Commenter
+" Vim plugin for intensely orgasmic commenting
+"---------------------------------------------
+
+Bundle 'scrooloose/nerdcommenter'
