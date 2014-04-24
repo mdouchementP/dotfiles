@@ -1,0 +1,5 @@
+" Syntastic
+" A syntax checking.
+" ------------------
+
+Bundle 'scrooloose/syntastic'

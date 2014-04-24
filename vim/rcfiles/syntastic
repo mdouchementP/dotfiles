@@ -1,0 +1,7 @@
+" Syntax Checker config
+"----------------------
+
+" Find in https://github.com/scrooloose/syntastic/blob/master/syntax_checkers/ruby/rubocop.vim
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
+" vim:ft=vim
