@@ -46,8 +46,7 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
-alias bn="bundle exec "
-
+export EDITOR='vim'
 
 
 # ST3 config
