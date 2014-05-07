@@ -42,4 +42,7 @@ set noswapfile
 " Replace the <cedit> command to pop into the 'command-line window'
 set cedit=<C-Y>
 
+" Automatically remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 " vim:ft=vim

@@ -22,4 +22,5 @@ echo 'Create symbolic links for vimrc & plugins'
 ln -s $DIR/.vimrc ~/.vimrc
 ln -s $DIR/vim/rcfiles ~/.vim/rcfiles
 ln -s $DIR/vim/rcplugins ~/.vim/rcplugins
-#ln -s $DIR/bin/* ~/.bin/*
+# ln -s $DIR/vim/snippets ~/.vim/snippets
+# ln -s $DIR/bin/* ~/.bin/*

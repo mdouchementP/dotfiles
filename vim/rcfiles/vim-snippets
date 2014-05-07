@@ -1,0 +1,1 @@
+" call ExtractSnips('~/.vim/snippets/custom_ruby-rails.snippets', 'ruby')

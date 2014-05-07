@@ -1,0 +1,5 @@
+" Rename.vim
+" Rename the current file in the vim buffer + retain relative path
+"-----------------------------------------------------------------
+
+Bundle 'danro/rename.vim'
