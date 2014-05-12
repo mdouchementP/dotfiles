@@ -1,6 +1,10 @@
 ![Vim](http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/60px-Vimlogo.svg.png)
 
-```
+Clone dotfiles repository where you want.
+
+Run very basic scripts `zsh_installer.sh` & `vim_installer`.
+
+```bash
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 $ vim +BundleInstall
 
