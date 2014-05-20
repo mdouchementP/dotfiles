@@ -1,0 +1,5 @@
+" rspec.vim
+" This is improved syntax highlighting for rspec
+" ----------------------------------------------
+
+Bundle 'mdouchement/rspec.vim'
