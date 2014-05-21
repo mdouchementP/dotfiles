@@ -1,0 +1,5 @@
+" Ruby treetop.
+" Syntax highlighting & snippets
+"-------------------------------
+
+Bundle 'nanki/treetop.vim'
