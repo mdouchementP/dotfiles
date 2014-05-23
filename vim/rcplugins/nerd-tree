@@ -1,0 +1,6 @@
+" Nerd Tree
+" The NERD tree allows you to explore your filesystem and to open files and directories.
+"---------------------------------------------------------------------------------------
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
