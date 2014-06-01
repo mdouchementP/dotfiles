@@ -38,7 +38,7 @@ alias ll='ls -alh'
 export HISTFILESIZE=10000 # number of lines in the .bash_history, .zsh_history, etc.
 export HISTSIZE=10000 # number of lines in the shell instance
 
-# Ruby EBenv
+# rbenv
 export RBENV_ROOT="${HOME}/.rbenv"
 
 if [ -d "${RBENV_ROOT}" ]; then
@@ -60,3 +60,9 @@ alias tssh="ssh -L 6379:PC-DEV-01:6379 sharefs@PC-DEV-01"
 
 # Karma
 export CHROME_BIN="/usr/bin/chromium-browser"
+
+# pyenv
+if [ -f ~/.pyrc ]
+then
+  . "$HOME/.pyrc"
+fi
