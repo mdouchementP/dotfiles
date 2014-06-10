@@ -10,6 +10,9 @@ $ vim +BundleInstall
 
 ```
 
+* [rbenv](https://github.com/fesplugas/rbenv-installer)
+* [pyenv](https://github.com/yyuu/pyenv-installer)
+
 # Font installation (Airline-Powerline)
 ## Links
 * There are already some fonts in the font folder
