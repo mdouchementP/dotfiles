@@ -21,3 +21,15 @@ $ vim +BundleInstall
 
 # vim-instant-markdown installation
 Go to [vim-instant-markdown](https://github.com/suan/vim-instant-markdown) repository and see installation dependencies.
+
+# Ctags
+## Installation
+
+```bash
+$ sudo apt-get install exuberant-ctags
+```
+
+* [Using ctags in Vim](http://amix.dk/blog/post/19329)
+* [Using ctags in vim on RoR (shortcuts)](http://blog.bojica.com/2010/06/27/ctags-and-vim-for-ruby-on-rails-development)
+* Configuration in `vim/rcfiles/vim-taglist`
+ * Actually, it's only setted for Ruby on Rails

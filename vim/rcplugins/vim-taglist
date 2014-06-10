@@ -1,0 +1,4 @@
+" Ctags integration
+"------------------
+
+Bundle 'vim-scripts/taglist.vim'
