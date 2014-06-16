@@ -19,6 +19,23 @@ pause
 
 
 echo 'Create symbolic links for zshrc, profile & theme (git + rbenv)'
-ln -s $DIR/.zshrc ~/.zshrc
-ln -s $DIR/.profile ~/.profile
-ln -s $DIR/.oh-my-zsh/themes/fragan.zsh-theme ~/.oh-my-zsh/themes/
+if [ ! -f ~/.zshrc ]
+then
+  ln -s $DIR/.zshrc ~/.zshrc
+else
+  echo '  ~/.zshrc already exists'
+fi
+
+if [ ! -f ~/.profile ]
+then
+  ln -s $DIR/.profile ~/.profile
+else
+  echo '  ~/.profile already exists'
+fi
+
+if [ ! -f ~/.oh-my-zsh/themes/fragan.zsh-theme ]
+then
+  ln -s $DIR/.oh-my-zsh/themes/fragan.zsh-theme ~/.oh-my-zsh/themes/
+else
+  echo '  ~/.oh-my-zsh/themes/fragan.zsh-theme already exists'
+fi

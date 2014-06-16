@@ -15,4 +15,9 @@ pause
 
 
 echo 'Create symbolic links for pryrc.'
-ln -s $DIR/.pryrc ~/.pryrc
+if [ ! -f ~/.pryrc ]
+then
+  ln -s $DIR/.pryrc ~/.pryrc
+else
+  echo '  ~/.pryrc already exists'
+fi

@@ -16,6 +16,13 @@
 #     fi
 # fi
 
+
+# User bin
+if [ -d ~/bin ]
+then
+  export PATH=$PATH:$HOME/bin
+fi
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
