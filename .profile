@@ -40,6 +40,7 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 alias ll='ls -alh'
+alias mjson='echo $1 | python -mjson.tool'
 
 # Increase prompt history
 export HISTFILESIZE=10000 # number of lines in the .bash_history, .zsh_history, etc.
@@ -53,20 +54,19 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
+alias stoken="export SECRET_TOKEN='012345678901234567890123456789'"
+
 export EDITOR='vim'
 
 
 # ST3 config
 export PATH=$PATH:$HOME/.config/sublime-text-3/path
 
-
-alias stoken="export SECRET_TOKEN='012345678901234567890123456789'"
-
-alias tssh="ssh -L 6379:PC-DEV-01:6379 sharefs@PC-DEV-01"
-
-
-# Karma
-export CHROME_BIN="/usr/bin/chromium-browser"
+# Extra Configuration
+if [ -f ~/.extrarc ]
+then
+  . "$HOME/.extrarc"
+fi
 
 # pyenv
 if [ -f ~/.pyrc ]
