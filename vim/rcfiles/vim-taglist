@@ -7,3 +7,4 @@ map <F4> :TlistToggle<cr>
 
 " RoR
 map <F8> :!/usr/bin/ctags -R --exclude=.git . $(bundle list --paths)<CR>
+map <F7> :!/usr/bin/ctags -R --exclude=.git .<CR>
