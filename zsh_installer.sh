@@ -39,3 +39,10 @@ then
 else
   echo '  ~/.oh-my-zsh/themes/fragan.zsh-theme already exists'
 fi
+
+if [ ! -f ~/.rspec ]
+then
+  ln -s $DIR/.rspec ~/.rspec
+else
+  echo '  ~/.rspec already exists'
+fi
