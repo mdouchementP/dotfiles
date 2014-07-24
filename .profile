@@ -58,6 +58,8 @@ alias stoken="export SECRET_TOKEN='012345678901234567890123456789'"
 
 export EDITOR='vim'
 
+# Foce git to us US locale
+alias git='LANG=en_US git'
 
 # ST3 config
 export PATH=$PATH:$HOME/.config/sublime-text-3/path
