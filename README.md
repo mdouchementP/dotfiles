@@ -5,7 +5,12 @@ Clone dotfiles repository where you want.
 Run very basic scripts `zsh_installer.sh` & `vim_installer`.
 
 ```bash
+$ curl -L http://install.ohmyz.sh | sh
+$ dotfiles/zsh_install.sh
+
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+$ dotfiles/vim_install.sh
+
 $ vim +BundleInstall
 
 ```
