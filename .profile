@@ -41,6 +41,8 @@ fi
 
 alias ll='ls -alh'
 alias mjson='echo $1 | python -mjson.tool'
+# With python pygments
+alias ccat='pygmentize -O style=monokai -f console256 -g'
 
 # Increase prompt history
 export HISTFILESIZE=10000 # number of lines in the .bash_history, .zsh_history, etc.
