@@ -2,7 +2,9 @@
 
 Clone dotfiles repository where you want.
 
-Run very basic scripts `zsh_installer.sh` & `vim_installer`.
+Run very basic scripts `zsh_installer.sh` & `vim_installer` (or `nvim_installer.sh`).
+> vim or nvim script will install tmux conf.
+> - These script add support for Byobu (Tmux wrapper). Byobu can be easily installed then launch `byobu-ctrl-a` and select *Screen mode*, launch `byobu-select-backend` and select *tmux*.
 
 ```bash
 # Install ZSH

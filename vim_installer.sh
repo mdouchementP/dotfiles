@@ -24,6 +24,14 @@ else
   echo '  ~/.tmux.conf already exists'
 fi
 
+echo 'Restore vertical split in Tmux if Byobu is used'
+if [ -f ~/.byobu/keybindings.tmux ] && [ $(grep -c -F "bind '\"' split-window -v" ~/.byobu/keybindings.tmux) -eq 0 ]
+then
+  echo "bind '\"' split-window -v" >> ~/.byobu/keybindings.tmux
+else
+  echo '  ~/.byobu/keybindings.tmux does not exist or binding is already setted'
+fi
+
 echo 'Create symbolic links for vimrc & plugins'
 if [ ! -f ~/.vimrc ]
 then
