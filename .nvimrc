@@ -38,19 +38,3 @@ syntax on
 " Vimrc is split accross multiple files, so loop over and source each
 "---------------------------------------------------------------------
 call s:SourceConfigFilesIn('rcfiles')
-
-
-" Nvim clipboard hack
-"--------------------
-function! ClipboardYank()
-  call system('xclip -i -selection clipboard', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('xclip -o -selection clipboard')
-endfunction
-
-vnoremap <silent> y y:call ClipboardYank()<cr>
-vnoremap <silent> d d:call ClipboardYank()<cr>
-nnoremap <silent> p :call ClipboardPaste()<cr>p
-onoremap <silent> y y:call ClipboardYank()<cr>
-onoremap <silent> d d:call ClipboardYank()<cr>
