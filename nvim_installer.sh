@@ -33,7 +33,7 @@ fi
 echo 'Create symbolic links for nvimrc & plugins'
 if [ ! -f ~/.nvimrc ]
 then
-  ln -s $DIR/.vimrc ~/.nvimrc
+  ln -s $DIR/.nvimrc ~/.nvimrc
 else
   echo '  ~/.nvimrc already exists'
 fi

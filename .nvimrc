@@ -1,0 +1,56 @@
+"===========================================================================
+"                                ~My vimrc~
+"===========================================================================
+" My vimrc, mostly for rails & javascript development. I have organized
+" all of my vimrc style configurations into individual files organized
+" by functionality. These live in ~/.vim/rcfiles.
+"
+" I am using Vundle to manage my plugins, which is configured below
+" Each plugin is configured in its own file in ~/.vim/rcplugins
+"---------------------------------------------------------------------
+
+" Want to set this before any others
+let mapleader = ","
+
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.nvim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+        execute 'source' config_file
+    endif
+  endfor
+endfunction
+
+" Setup Vundle to manage my bundles
+"-----------------------------------
+filetype off " required!
+set rtp+=~/.nvim/bundle/vundle/
+call vundle#rc("~/.nvim/bundle/")
+
+
+" Plugins are each listed in their own file. Loop and source ftw
+"----------------------------------------------------------------
+call s:SourceConfigFilesIn('rcplugins')
+
+filetype plugin indent on " required!
+syntax on
+
+" Vimrc is split accross multiple files, so loop over and source each
+"---------------------------------------------------------------------
+call s:SourceConfigFilesIn('rcfiles')
+
+
+" Nvim clipboard hack
+"--------------------
+function! ClipboardYank()
+  call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
+onoremap <silent> y y:call ClipboardYank()<cr>
+onoremap <silent> d d:call ClipboardYank()<cr>
