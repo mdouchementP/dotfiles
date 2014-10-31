@@ -1,0 +1,5 @@
+" Golang integration
+" ------------------
+Bundle 'fatih/vim-go'
+
+" vim:ft=vim

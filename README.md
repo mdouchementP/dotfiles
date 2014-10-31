@@ -47,3 +47,17 @@ $ sudo apt-get install exuberant-ctags
 * [Using ctags in vim on RoR (shortcuts)](http://blog.bojica.com/2010/06/27/ctags-and-vim-for-ruby-on-rails-development)
 * Configuration in `vim/rcfiles/vim-taglist`
  * Actually, it's only setted for Ruby on Rails
+
+
+# GoLang
+- Add in `~/.gorc` the following lines:
+```bash
+# Export packages directory (libraries)
+export GOPATH="${HOME}/workspaces/golang"
+export PATH=$PATH:$GOPATH/bin
+
+alias gi='goop install'
+alias gg='goop go'
+alias ggr='goop go run'
+alias ge='goop exec'
+```

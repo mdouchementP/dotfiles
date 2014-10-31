@@ -56,6 +56,14 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
+# goenv
+export GOENV_ROOT="${HOME}/.goenv"
+
+if [ -d "${GOENV_ROOT}" ]; then
+  export PATH="${GOENV_ROOT}/bin:${PATH}"
+  eval "$(goenv init -)"
+fi
+
 alias stoken="export SECRET_TOKEN='012345678901234567890123456789'"
 
 export EDITOR='vim'
@@ -69,11 +77,17 @@ export PATH=$PATH:$HOME/.config/sublime-text-3/path
 # Extra Configuration
 if [ -f ~/.extrarc ]
 then
-  . "$HOME/.extrarc"
+  . "${HOME}/.extrarc"
+fi
+
+# goenv (defines GOPATH variable)
+if [ -f ~/.gorc ]
+then
+  . "${HOME}/.gorc"
 fi
 
 # pyenv
 if [ -f ~/.pyrc ]
 then
-  . "$HOME/.pyrc"
+  . "${HOME}/.pyrc"
 fi

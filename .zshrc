@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 
 if [ -f ~/.profile ]
 then
-  . "$HOME/.profile"
+  . "${HOME}/.profile"
 fi
 
 if [ -f ~/.bin/tmuxinator.zsh ]
