@@ -1,0 +1,4 @@
+" Auto execute ruby in vim
+" ----------------------------------------------
+
+Bundle 't9md/vim-ruby-xmpfilter'

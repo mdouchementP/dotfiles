@@ -36,6 +36,12 @@ $ vim +BundleInstall
 # vim-instant-markdown installation
 Go to [vim-instant-markdown](https://github.com/suan/vim-instant-markdown) repository and see installation dependencies.
 
+# vim-ruby-xmpfilter
+For this feature, install rcodetools gem:
+```bash
+$ gem install rcodetools
+```
+
 # Ctags
 ## Installation
 
