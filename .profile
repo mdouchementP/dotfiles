@@ -8,15 +8,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# if running bash
-# if [ -n "$BASH_VERSION" ]; then
-#     # include .bashrc if it exists
-#     if [ -f "$HOME/.bashrc" ]; then
-# 	. "$HOME/.bashrc"
-#     fi
-# fi
-
-
 # User bin
 if [ -d ~/bin ]
 then
@@ -28,10 +19,12 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-if [ -e /lib/terminfo/x/xterm-256color ]; then
-        export TERM='xterm-256color'
+if [ "$(TERM=xterm-256color tput colors)" = "256" ]; then
+  export TERM='xterm-256color'
+elif [ "$(TERM=gnome-256color tput colors)" = "256" ]; then
+  export TERM='gnome-256color'
 else
-        export TERM='xterm-color'
+  export TERM='xterm-color'
 fi
 
 # set PATH so it includes user's private bin if it exists
@@ -48,20 +41,20 @@ alias ccat='pygmentize -O style=monokai -f console256 -g'
 export HISTFILESIZE=10000 # number of lines in the .bash_history, .zsh_history, etc.
 export HISTSIZE=10000 # number of lines in the shell instance
 
+# Sane SSH_AUTH_SOCK handling for Screen and Tmux, so that new SSH agents created by subsequent logons are still usable.
+# https://gist.github.com/admackin/4507371
+_ssh_auth_save() {
+  ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh-auth-sock.$HOSTNAME"
+}
+alias screen='_ssh_auth_save ; export HOSTNAME=$(hostname) ; screen'
+alias tmux='_ssh_auth_save ; export HOSTNAME=$(hostname) ; tmux'
+
 # rbenv
 export RBENV_ROOT="${HOME}/.rbenv"
 
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
   eval "$(rbenv init -)"
-fi
-
-# goenv
-export GOENV_ROOT="${HOME}/.goenv"
-
-if [ -d "${GOENV_ROOT}" ]; then
-  export PATH="${GOENV_ROOT}/bin:${PATH}"
-  eval "$(goenv init -)"
 fi
 
 alias stoken="export SECRET_TOKEN='012345678901234567890123456789'"
@@ -71,23 +64,26 @@ export EDITOR='vim'
 # Foce git to us US locale
 alias git='LANG=en_US git'
 
-# ST3 config
-export PATH=$PATH:$HOME/.config/sublime-text-3/path
-
 # Extra Configuration
 if [ -f ~/.extrarc ]
 then
   . "${HOME}/.extrarc"
 fi
 
-# goenv (defines GOPATH variable)
+# Golang (defines GOPATH variable)
 if [ -f ~/.gorc ]
 then
   . "${HOME}/.gorc"
 fi
 
-# pyenv
+# Python
 if [ -f ~/.pyrc ]
 then
   . "${HOME}/.pyrc"
+fi
+
+# Docker Configuration
+if [ -f ~/.dockerfunc ]
+then
+  . "${HOME}/.dockerfunc"
 fi

@@ -1,0 +1,131 @@
+#!/bin/bash
+# Bash wrappers for docker run commands
+
+
+#
+# Helper Functions
+#
+dcleanup(){
+	docker rm $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+dcrmnone(){
+	docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi 2>/dev/null
+}
+
+del_stopped(){
+	local name=$1
+	local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+
+	if [[ "$state" == "false" ]]; then
+		docker rm $name
+	fi
+}
+relies_on(){
+	local containers=$@
+
+	for container in $containers; do
+		local state=$(docker inspect --format "{{.State.Running}}" $container 2>/dev/null)
+
+		if [[ "$state" == "false" ]] || [[ "$state" == "" ]]; then
+			echo "$container is not running, starting it for you."
+			$container
+		fi
+	done
+}
+
+#
+# Container Aliases
+#
+
+redis-server(){
+	docker run --restart=always --name redis -p 0.0.0.0:6379:6379 -itd redis 2>/dev/null
+}
+
+redis-cli(){
+	docker exec -it redis redis-cli "$@"
+}
+
+mongo(){
+	docker exec -it mongo mongo
+}
+
+mongo-server(){
+	docker run --restart=always --name mongo -p 27017:27017 -itd mongo 2>/dev/null
+}
+
+postgres-server(){
+  docker run --restart=always --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -itd postgres 2>/dev/null
+}
+
+psql(){
+  docker exec -it postgres psql "$@"
+}
+
+s3-server(){
+  docker run --restart=always --name=s3_server -p 10001:10001 -v /home/mdouchement/tmp/s3-server/storage:/data/storage -v /home/mdouchement/tmp/s3-server/db:/data/db -itd predicsis/s3-server
+}
+
+iceweasel(){
+  docker run -v /tmp/dcrctn:/root/Downloads -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=unix$DISPLAY -it  mdouchement/iceweasel
+}
+
+dockswift(){
+  docker run -P -p 80:80 -p 8080:8080 -p 5000:5000 -p 35357:35357 -p 8000:8000 -d -e INITIALIZE=yes -e IPADDRESS=192.168.1.59 --name swift predicsis/dockswift
+  sleep 40
+  docker exec -it swift swift post -m "Temp-URL-Key:temp_url_key" -V 2 --os-auth-url='http://127.0.0.1:5000/v2.0' --os-username='swift' --os-password='swift' --os-tenant-name='service'
+}
+
+dockerui(){
+  docker run --restart=always -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
+}
+
+dnsmasq(){
+  docker run --restart=always --name dnsmasq -d -p 53:53/udp -p 8088:8080 -v ~/app/dnsmasq.conf:/etc/dnsmasq.conf quay.io/jpillora/dnsmasq-gui:latest
+}
+
+#geary(){
+  #docker run -v /tmp/dcrctn:/root/Downloads -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=unix$DISPLAY -itd  mdouchement/geary
+#}
+
+chrome(){
+  del_stopped chrome
+
+  # one day remove /etc/hosts bind mount when effing
+  # overlay support inotify, such bullshit
+  docker run -d \
+    --cpuset-cpus 0 \
+    --memory 3gb \
+    --net host \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    -v $HOME/Downloads:/root/Downloads \
+    -v $HOME/Pictures:/root/Pictures \
+    -v $HOME/Torrents:/root/Torrents \
+    -v $HOME/.chrome:/data \
+    -v /etc/hosts:/etc/hosts \
+    --device /dev/snd \
+    --device /dev/dri \
+    --device /dev/video0 \
+    --name chrome \
+    jess/chrome:stable --user-data-dir=/data --force-device-scale-factor=1 "$@"
+
+  # exit current shell
+  exit 0
+}
+
+libreoffice(){
+  del_stopped libreoffice
+
+  docker run -d \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    -v $HOME/slides:/root/slides \
+    -e GDK_SCALE \
+    -e GDK_DPI_SCALE \
+    --name libreoffice \
+    jess/libreoffice
+}
