@@ -44,7 +44,8 @@ export HISTSIZE=10000 # number of lines in the shell instance
 # Sane SSH_AUTH_SOCK handling for Screen and Tmux, so that new SSH agents created by subsequent logons are still usable.
 # https://gist.github.com/admackin/4507371
 _ssh_auth_save() {
-  ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh-auth-sock.$HOSTNAME"
+  rm "${HOME}/.ssh/ssh-auth-sock.${HOSTNAME}"
+  ln -sf "$SSH_AUTH_SOCK" "${HOME}/.ssh/ssh-auth-sock.${HOSTNAME}"
 }
 alias screen='_ssh_auth_save ; export HOSTNAME=$(hostname) ; screen'
 alias tmux='_ssh_auth_save ; export HOSTNAME=$(hostname) ; tmux'

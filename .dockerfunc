@@ -40,7 +40,7 @@ relies_on(){
 #
 
 redis-server(){
-	docker run --restart=always --name redis -p 0.0.0.0:6379:6379 -itd redis 2>/dev/null
+	docker run --restart=always --name redis -p 6379:6379 -itd redis 2>/dev/null
 }
 
 redis-cli(){
