@@ -45,6 +45,7 @@ export HISTSIZE=10000 # number of lines in the shell instance
 # https://gist.github.com/admackin/4507371
 _ssh_auth_save() {
   rm "${HOME}/.ssh/ssh-auth-sock.${HOSTNAME}"
+  sleep 1
   ln -sf "$SSH_AUTH_SOCK" "${HOME}/.ssh/ssh-auth-sock.${HOSTNAME}"
 }
 alias screen='_ssh_auth_save ; export HOSTNAME=$(hostname) ; screen'
