@@ -14,6 +14,12 @@ dcrmnone(){
 	docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi 2>/dev/null
 }
 
+dcleanupall(){
+  dcleanup
+  docker rm $(docker ps --filter status=created -q 2>/dev/null) 2>/dev/null
+  dcrmnone
+}
+
 del_stopped(){
 	local name=$1
 	local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
@@ -64,7 +70,7 @@ psql(){
 }
 
 s3-server(){
-  docker run --restart=always --name=s3_server -p 10001:10001 -v /home/mdouchement/tmp/s3-server/storage:/data/storage -v /home/mdouchement/tmp/s3-server/db:/data/db -itd predicsis/s3-server
+  docker run --restart=always --name=s3_server -p 10001:10001 -v $HOME/tmp/s3-server/storage:/data/storage -v $HOME/tmp/s3-server/db:/data/db -itd predicsis/s3-server
 }
 
 iceweasel(){
