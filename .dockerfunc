@@ -14,10 +14,15 @@ dcrmnone(){
 	docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi 2>/dev/null
 }
 
+dcrmvolumes(){
+  docker volume rm $(docker volume ls -qf dangling=true 2>/dev/null) 2>/dev/null
+}
+
 dcleanupall(){
   dcleanup
   docker rm $(docker ps --filter status=created -q 2>/dev/null) 2>/dev/null
   dcrmnone
+  dcrmvolumes
 }
 
 del_stopped(){
