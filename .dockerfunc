@@ -25,6 +25,10 @@ dcleanupall(){
   dcrmvolumes
 }
 
+xhyve_enter(){
+  docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh
+}
+
 del_stopped(){
 	local name=$1
 	local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
