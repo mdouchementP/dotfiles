@@ -1,7 +1,7 @@
 # https://github.com/nixme/jazz_hands/blob/master/lib/jazz_hands.rb
 
-require 'jazz_hands/version'
-require 'jazz_hands/railtie' if defined?(Rails)
+require 'debbie'
+#require 'jazz_hands/railtie' if defined?(Rails)
 require 'active_support'
 require 'readline'
 
