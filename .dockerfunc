@@ -29,7 +29,8 @@ dfstats(){
   docker stats $(docker ps --format={{.Names}})
 }
 
-xhyve_enter(){
+moby(){
+  # Enter in Moby runtime (Docker's xhyve)
   docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh
 }
 
