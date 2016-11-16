@@ -45,7 +45,7 @@ ZSH_THEME="fragan"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv bundler docker golang jsontools)
+plugins=(git bundler docker golang jsontools)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -70,9 +70,4 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.profile ]
 then
   . "${HOME}/.profile"
-fi
-
-if [ -f ~/.bin/tmuxinator.zsh ]
-then
-  source ~/.bin/tmuxinator.zsh
 fi
