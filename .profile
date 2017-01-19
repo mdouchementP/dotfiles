@@ -89,3 +89,13 @@ if [ -f ~/.dockerfunc ]
 then
   . "${HOME}/.dockerfunc"
 fi
+
+# Quick and dirty line displaying.
+#   $1 -> line number
+#   $2 -> first file
+#   $3 -> second file
+# Usage:
+#   lshow 4 file1.txt file2.txt
+lshow() {
+  head -n $1 $2 | tail -n 1 && head -n $1 $3 | tail -n 1
+}
