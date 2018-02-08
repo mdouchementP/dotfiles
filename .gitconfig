@@ -2,6 +2,16 @@
 [user]
 # Please adapt and uncomment the following lines:
 name = mdouchement
-email = marc.douchement@predicsis.com
+email = marc.douchement@gmail.com
+	signingkey = A27FD4D5
 [rerere]
 	enabled = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2

@@ -48,7 +48,7 @@ relies_on(){
 #
 
 redis-server(){
-	docker run --restart=always --name redis -p 6379:6379 -itd redis 2>/dev/null
+	docker run --restart=always --name redis -p 6379:6379 -itd redis:3-alpine 2>/dev/null
 }
 
 redis-cli(){
@@ -64,7 +64,7 @@ mongo-server(){
 }
 
 postgres-server(){
-  docker run --restart=always --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -itd postgres 2>/dev/null
+  docker run --restart=always --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -itd postgres:10-alpine 2>/dev/null
 }
 
 psql(){

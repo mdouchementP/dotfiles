@@ -66,6 +66,8 @@ export EDITOR='vim'
 # Foce git to us US locale
 alias git='LANG=en_US git'
 
+eval "$(direnv hook zsh)"
+
 # Extra Configuration
 if [ -f ~/.extrarc ]
 then
