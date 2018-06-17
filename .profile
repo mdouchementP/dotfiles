@@ -8,6 +8,12 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# Preloader
+if [ -f ~/.hookrc ]
+then
+  . "${HOME}/.hookrc"
+fi
+
 # User bin
 if [ -d ~/bin ]
 then
@@ -25,11 +31,6 @@ elif [ "$(TERM=gnome-256color tput colors)" = "256" ]; then
   export TERM='gnome-256color'
 else
   export TERM='xterm-color'
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
 fi
 
 alias ll='ls -alh'
